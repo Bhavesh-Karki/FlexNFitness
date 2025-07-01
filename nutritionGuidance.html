@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Guidance</title>
+    <link rel="stylesheet" href="nutritionGuidance.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1>Nutrition Guidance</h1>
+        <marquee class="marquee">Welcome to FlexNFitness You can Track You Nutrition From Here!</marquee>
+        <button class="btn btn-blue" onclick="toggleDarkMode()">Toggle Mode</button>
+    </nav>
+
+    <div class="container">
+        <h2>Personalized Nutrition Plans</h2>
+        <button class="btn btn-blue" onclick="generatePlan()">Generate Plan</button>
+        <p id="meal-plan"></p>
+    </div>
+
+    <div class="container">
+        <h2>Calorie & Hydration Tracker</h2>
+        <input type="number" id="calories" placeholder="Enter Calories">
+        <input type="number" id="water" placeholder="Water (ml)">
+        <button class="btn btn-blue" onclick="trackIntake()">Track</button>
+        <p id="tracker-output"></p>
+    </div>
+
+    <div class="container">
+        <h2>Healthy Recipes</h2>
+        <div class="recipe">Grilled Chicken Salad</div>
+        <div class="recipe">Oatmeal with Fruits</div>
+        <div class="recipe">Smoothie Bowl</div>
+    </div>
+
+    <footer>
+        <p>&copy; This Is A Sample Idea For Nutrition Guidance Made By FlexNFitness.</p>
+    </footer>
+
+    <script src="nutritionGuidance.js"></script>
+</body>
+
+</html>

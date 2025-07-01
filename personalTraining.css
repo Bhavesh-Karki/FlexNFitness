@@ -1,0 +1,83 @@
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            padding-top: 30px;
+            text-transform: capitalize;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(5px);
+            z-index: -2;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            backdrop-filter: blur(15px);
+            margin-top: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .gender-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .gender-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        button {
+            background-color: #2b3a67;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: backgound 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1f2a50;
+            transform: scale(1.05);
+        }
+
+        marquee {
+            width: 100%;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }

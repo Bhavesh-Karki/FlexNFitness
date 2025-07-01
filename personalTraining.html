@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Training Booking</title>
+    <link rel="stylesheet" href="personalTraining.css">
+</head>
+
+<body>
+    <marquee behavior="scroll" direction="left" loop="1">Your Personal Training Will Be Booked To Your Nearest
+        FlexNFitness Branch!</marquee>
+    <video class="background-video" autoplay loop muted>
+        <source
+            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExanN0ZThzdHF1MzgxODlhMzV5cmo2cGdyZXkxcDFjcmhleDRpeTk5bSZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9Zw/DBbPjLMsQPruMkDcrd/giphy.mp4"
+            type="video/mp4">
+    </video>
+    <div class="container">
+        <h2>Book Your Training</h2>
+        <form onsubmit="return bookTraining()">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="number" id="age" placeholder="Your Age" required>
+            <input type="tel" id="number" placeholder="Your Contact Number" pattern="[0-9]{10}" required>
+
+            <div class="gender-group">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <select id="trainingType" required>
+                <option value="">Select Training Type</option>
+                <option value="fitness">Fitness</option>
+                <option value="yoga">Yoga</option>
+                <option value="strength">Meditation</option>
+                <option value="strength">Strength Training</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="personalTraining.js"></script>
+</body>
+
+</html>

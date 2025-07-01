@@ -1,0 +1,99 @@
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: backround 0.3s, color 0.3s;
+            text-transform: capitalize;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .marquee {
+            flex-grow: 1;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: color 0.3s;
+            color: white;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, backround 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-blue {
+            background-color: blue;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .result {
+            background: #333;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: backround 0.3s;
+        }
+
+        .progress {
+            width: 80%;
+            max-width: 300px;
+            height: 20px;
+            background: #555;
+            border-radius: 10px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: green;
+            transition: width 0.5s;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        .dark {
+            background-color: white;
+            color: black;
+        }
+
+        .dark .btn-blue {
+            background-color: blue;
+            color: black;
+        }

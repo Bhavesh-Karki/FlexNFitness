@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="bmiCalculator.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1 id="title">BMI Calculator</h1>
+        <marquee class="marquee" id="marquee">Welcome to FlexNFitness Check your Body Mass Index From Here!</marquee>
+        <button class="btn btn-blue" id="mode-btn" onclick="toggleDarkMode()">Light Mode</button>
+    </nav>
+
+    <div class="container">
+        <h2>Calculate Your BMI</h2>
+        <input type="number" id="weight" placeholder="Enter Weight (kg)" oninput="calculateBMI()">
+        <input type="number" id="height" placeholder="Enter Height (cm)" oninput="calculateBMI()">
+        <div class="progress">
+            <div class="progress-bar" id="bmi-bar"></div>
+        </div>
+        <p id="bmi-result" class="result"></p>
+    </div>
+
+    <footer>
+        <p>&copy; This Is Sample BMI Calculator Made By FlexNFitness With Some Interesting UI.</p>
+    </footer>
+
+    <script src="bmiCalculator.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexNFitness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="FlexNFitness.css">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to FlexNFitness!</h1>
+        <p>Start tracing your health today with our expert guidance and features.</p>
+        <button class="cta-button" id="startBtn">Get Started</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav id="navId">
+        <div>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="buttons">
+            <button id="darkModeToggle">
+                <i id="darkModeIcon" class="fa-light fa-toggle-on"></i> Dark Mode
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Empowering you with expert fitness guidance and personalized plans to achieve your health goals.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="service-container">
+                <div class="service"><a href="personalTraining.html" target="_self"><i class="fa-solid fa-dumbbell"></i>
+                        Personal Training</a></div>
+                <div class="service"><a href="nutritionGuidance.html" target="_self"><i
+                            class="fa-brands fa-nutritionix"></i> Nutrition Guidance</a></div>
+                <div class="service"><a href="bmiCalculator.html" target="_self"><i class="fa-solid fa-calculator"></i>
+                        BMI Calculator</a></div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2>What Our User Say</h2>
+            <p>"This platform help me to track my fitness" - Saket</p>
+            <p>"The best fitness community out there. Highly recommend!" - Sachin</p>
+            <button class="buttons">More...</button>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button class="submit">Send</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <section id="ContactMe">
+            <p>&copy;Thank you for Checking FlexNFitness | <a href="#">Visit again</a></p>
+            <a class="ICON" href="https://github.com/Bhavesh-Karki"><i class="fa-brands fa-github"></i></a>
+            <a class="ICON" href="https://www.linkedin.com/in/bhavesh-karki-b521a8370/"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="ICON" href="https://www.instagram.com/bhavesh_karki_/"><i class="fa-brands fa-instagram"></i></a>
+            <a class="ICON" href="mailto:codebybhavesh@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+        </section>
+    </footer>
+
+    <script src="FlexNFitness.js"></script>
+</body>
+
+</html>
