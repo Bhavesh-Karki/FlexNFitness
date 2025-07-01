@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Guidance</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: backgound 0.3s, color 0.3s;
+            text-transform: capitalize;
+        }
+
+        .dark-mode {
+            background-color: #111;
+            color: white;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            padding: 10px 20px;
+        }
+
+        .dark-mode .navbar {
+            background: #222;
+        }
+
+        .light-mode .navbar {
+            background: #f4f4f4;
+        }
+
+        .marquee {
+            flex-grow: 1;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-blue {
+            background-color: blue;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 2px solid #555;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .recipe {
+            background: #333;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .dark-mode .recipe {
+            background: #333;
+        }
+
+        .light-mode .recipe {
+            background: #ddd;
+        }
+
+        footer p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1>Nutrition Guidance</h1>
+        <marquee class="marquee">Welcome to FlexNFitness You can Track You Nutrition From Here!</marquee>
+        <button class="btn btn-blue" onclick="toggleDarkMode()">Toggle Mode</button>
+    </nav>
+
+    <div class="container">
+        <h2>Personalized Nutrition Plans</h2>
+        <button class="btn btn-blue" onclick="generatePlan()">Generate Plan</button>
+        <p id="meal-plan"></p>
+    </div>
+
+    <div class="container">
+        <h2>Calorie & Hydration Tracker</h2>
+        <input type="number" id="calories" placeholder="Enter Calories">
+        <input type="number" id="water" placeholder="Water (ml)">
+        <button class="btn btn-blue" onclick="trackIntake()">Track</button>
+        <p id="tracker-output"></p>
+    </div>
+
+    <div class="container">
+        <h2>Healthy Recipes</h2>
+        <div class="recipe">Grilled Chicken Salad</div>
+        <div class="recipe">Oatmeal with Fruits</div>
+        <div class="recipe">Smoothie Bowl</div>
+    </div>
+
+    <footer>
+        <p>&copy; This Is A Sample Idea For Nutrition Guidance Made By FlexNFitness.</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            let body = document.body;
+            if (body.classList.contains("dark-mode")) {
+                body.classList.remove("dark-mode");
+                body.classList.add("light-mode");
+                localStorage.setItem("theme", "light-mode");
+            } else {
+                body.classList.remove("light-mode");
+                body.classList.add("dark-mode");
+                localStorage.setItem("theme", "dark-mode");
+            }
+        }
+
+        function generatePlan() {
+            const plans = [
+                "High Protein Diet",
+                "Keto Diet",
+                "Balanced Diet",
+                "Low Carb Diet"
+            ];
+            document.getElementById('meal-plan').innerText = `Recommended Plan: ${plans[Math.floor(Math.random() * plans.length)]}`;
+        }
+
+        function trackIntake() {
+            let calories = document.getElementById('calories').value;
+            let water = document.getElementById('water').value;
+            document.getElementById('tracker-output').innerText = `Calories: ${calories} kcal | Water: ${water} ml`;
+        }
+
+        window.onload = function () {
+            const savedTheme = localStorage.getItem("theme") || "dark-mode";
+            document.body.classList.add(savedTheme);
+        };
+    </script>
+</body>
+
+</html>

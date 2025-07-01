@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: backround 0.3s, color 0.3s;
+            text-transform: capitalize;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .marquee {
+            flex-grow: 1;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: color 0.3s;
+            color: white;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, backround 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-blue {
+            background-color: blue;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .result {
+            background: #333;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: backround 0.3s;
+        }
+
+        .progress {
+            width: 80%;
+            max-width: 300px;
+            height: 20px;
+            background: #555;
+            border-radius: 10px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: green;
+            transition: width 0.5s;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        .dark {
+            background-color: white;
+            color: black;
+        }
+
+        .dark .btn-blue {
+            background-color: blue;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1 id="title">BMI Calculator</h1>
+        <marquee class="marquee" id="marquee">Welcome to FlexNFitness Check your Body Mass Index From Here!</marquee>
+        <button class="btn btn-blue" id="mode-btn" onclick="toggleDarkMode()">Light Mode</button>
+    </nav>
+
+    <div class="container">
+        <h2>Calculate Your BMI</h2>
+        <input type="number" id="weight" placeholder="Enter Weight (kg)" oninput="calculateBMI()">
+        <input type="number" id="height" placeholder="Enter Height (cm)" oninput="calculateBMI()">
+        <div class="progress">
+            <div class="progress-bar" id="bmi-bar"></div>
+        </div>
+        <p id="bmi-result" class="result"></p>
+    </div>
+
+    <footer>
+        <p>&copy; This Is Sample BMI Calculator Made By FlexNFitness With Some Interesting UI.</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            let isDark = document.body.classList.contains('dark');
+            document.getElementById('mode-btn').innerText = isDark ? 'Dark Mode' : 'Light Mode';
+        }
+        function calculateBMI() {
+            let weight = document.getElementById('weight').value;
+            let height = document.getElementById('height').value / 100; // Convert cm to meters
+            let resultText = document.getElementById('bmi-result');
+            let progressBar = document.getElementById('bmi-bar');
+
+            if (weight > 0 && height > 0) {
+                let bmi = (weight / (height * height)).toFixed(2);
+                let category = "";
+                let color = "green";
+                let progress = (bmi / 40) * 100;
+
+                if (bmi < 18.5) { category = "Underweight"; color = "blue"; }
+                else if (bmi < 24.9) { category = "Normal Weight"; color = "green"; }
+                else if (bmi < 29.9) { category = "Overweight"; color = "orange"; }
+                else { category = "Obese"; color = "red"; }
+
+                resultText.innerText = `Your BMI: ${bmi} (${category})`;
+                resultText.style.backgroundColor = color;
+                progressBar.style.width = `${progress}%`;
+                progressBar.style.backgroundColor = color;
+            } else {
+                resultText.innerText = "Please enter valid values.";
+                progressBar.style.width = "0%";
+            }
+        }
+    </script>
+</body>
+</html>

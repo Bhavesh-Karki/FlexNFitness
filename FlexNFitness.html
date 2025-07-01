@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexNFitness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        background-color: #F8F9FA;
+        color: #222;
+        transition: background-color 0.5s ease, color 0.5s ease;
+        /* dark gray for readability */
+        text-transform: capitalize;
+    }
+
+    body {
+        transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    .dark-mode {
+        background-color: #121212;
+        color: #E0E0E0;
+    }
+
+    /* style the button */
+    #darkModeToggle {
+        background-color: #ffffff;
+        color: #333;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+    }
+
+    /* Dark Mode Button Style */
+    .dark-mode nav {
+        background: #1E1E1E;
+        color: #F5F5F5;
+    }
+
+    .dark-mode nav a {
+        color: white;
+    }
+
+    .dark-mode button {
+        background-color: #0A84FF;
+        color: white;
+    }
+
+    .dark-mode button:hover {
+        background-color: #0066cc;
+    }
+
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background: #FFFFFF;
+        color: #222;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav a {
+        color: #222;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #007BFF;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 50px;
+        background: linear-gradient(to right, #2b3a67, #1a2a50);
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cta-button {
+        background-color: white;
+        color: #2b3a67;
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .cta-button:hover {
+        background-color: #007BFF;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    /* section styles */
+    section {
+        padding: 50px;
+        text-align: center;
+    }
+
+    .service-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+    }
+
+    .service {
+        background: #2b3a67;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+
+    /* Remove link color and match text in light and dark mode */
+    .service-container .service a {
+        color: inherit !important;
+        /* Force it to inherit text color */
+        text-decoration: none !important;
+        /* Remove underline */
+    }
+
+    .service-container .service a:hover {
+        text-decoration: none !important;
+        /* Optional: Add underline on hover */
+    }
+
+    /* Contact Form */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 400px;
+        margin: auto;
+    }
+
+    input,
+    textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+        background: #2b3a67;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        height: 40px;
+    }
+
+    button[type="submit"]:hover {
+        background: #007BFF;
+
+    }
+
+    footer {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to FlexNFitness!</h1>
+        <p>Start tracing your health today with our expert guidance and features.</p>
+        <button class="cta-button" id="startBtn">Get Started</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav id="navId">
+        <div>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="buttons">
+            <button id="darkModeToggle">
+                <i id="darkModeIcon" class="fa-light fa-toggle-on"></i> Dark Mode
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Empowering you with expert fitness guidance and personalized plans to achieve your health goals.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="service-container">
+                <div class="service"><a href="personalTraining.html" target="_self"><i class="fa-solid fa-dumbbell"></i>
+                        Personal Training</a></div>
+                <div class="service"><a href="nutritionGuidance.html" target="_self"><i
+                            class="fa-brands fa-nutritionix"></i> Nutrition Guidance</a></div>
+                <div class="service"><a href="bmiCalculator.html" target="_self"><i class="fa-solid fa-calculator"></i>
+                        BMI Calculator</a></div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2>What Our User Say</h2>
+            <p>"This platform help me to track my fitness" - Saket</p>
+            <p>"The best fitness community out there. Highly recommend!" - Sachin</p>
+            <button class="buttons">More...</button>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button class="submit">Send</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>&copy;Thank you for Checking FlexNFitness | <a href="#">Visit again</a></p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const darkModeIcon = document.getElementById("darkModeIcon");
+        let isDarkMode = localStorage.getItem("dark-mode") === "enabled";
+
+        // Function to update the icon
+        function updateIcon() {
+            if (isDarkMode) {
+                darkModeIcon.classList.replace("fa-toggle-on", "fa-toggle-off");
+            } else {
+                darkModeIcon.classList.replace("fa-toggle-off", "fa-toggle-on");
+            }
+        }
+
+        // Apply dark mode if enabled
+        if (isDarkMode) {
+            document.body.classList.add("dark-mode");
+            updateIcon();
+        }
+
+        darkModeToggle.addEventListener("click", function () {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle("dark-mode", isDarkMode);
+            localStorage.setItem("dark-mode", isDarkMode ? "enabled" : "disabled");
+            updateIcon();
+        });
+
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll("nav a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute("href").substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+
+        // Chatbox Functionality
+        function toggleChatbox() {
+            const chatbox = document.getElementById("chatbox");
+            chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+        }
+
+        function sendMessage() {
+            const inputField = document.getElementById("chatInput");
+            const message = inputField.value.trim();
+            if (message === "") return;
+
+            appendMessage("You", message);
+            respondToMessage(message);
+            inputField.value = "";
+        }
+
+        function appendMessage(sender, text) {
+            const chatboxMessages = document.getElementById("chatboxMessages");
+            const messageDiv = document.createElement("div");
+            messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            chatboxMessages.appendChild(messageDiv);
+            chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+        }
+
+        function respondToMessage(message) {
+            let response;
+            if (message.toLowerCase().includes("exercise")) {
+                response = "Regular exercise improves health. Try a mix of cardio and strength training!";
+            } else if (message.toLowerCase().includes("diet")) {
+                response = "A balanced diet is key! Include protein, healthy fats, and fiber-rich foods.";
+            } else {
+                response = "I'm here to help! Ask me about fitness, diet, or workouts.";
+            }
+            setTimeout(() => appendMessage("Chatbot", response), 500);
+        }
+
+        document.getElementById("startBtn").addEventListener("click", function (event) {
+            if (event.button === 0) {  // Trigger on left mouse click (button 0)
+                scrollToNav();
+            }
+        });
+
+        function scrollToNav() {
+            let navID = document.getElementById("navId");
+            if (navID) {
+                navID.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    </script>
+</body>
+</html>

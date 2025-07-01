@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="FlexNFitness-Final-logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Training Booking</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            padding-top: 30px;
+            text-transform: capitalize;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(5px);
+            z-index: -2;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            backdrop-filter: blur(15px);
+            margin-top: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .gender-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .gender-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        button {
+            background-color: #2b3a67;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: backgound 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1f2a50;
+            transform: scale(1.05);
+        }
+
+        marquee {
+            width: 100%;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <marquee behavior="scroll" direction="left" loop="1">Your Personal Training Will Be Booked To Your Nearest
+        FlexNFitness Branch!</marquee>
+    <video class="background-video" autoplay loop muted>
+        <source
+            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExanN0ZThzdHF1MzgxODlhMzV5cmo2cGdyZXkxcDFjcmhleDRpeTk5bSZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9Zw/DBbPjLMsQPruMkDcrd/giphy.mp4"
+            type="video/mp4">
+    </video>
+    <div class="container">
+        <h2>Book Your Training</h2>
+        <form onsubmit="return bookTraining()">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="number" id="age" placeholder="Your Age" required>
+            <input type="tel" id="number" placeholder="Your Contact Number" pattern="[0-9]{10}" required>
+
+            <div class="gender-group">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <select id="trainingType" required>
+                <option value="">Select Training Type</option>
+                <option value="fitness">Fitness</option>
+                <option value="yoga">Yoga</option>
+                <option value="strength">Meditation</option>
+                <option value="strength">Strength Training</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function bookTraining() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let age = document.getElementById('age').value;
+            let number = document.getElementById('number').value;
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let date = document.getElementById('date').value;
+            let time = document.getElementById('time').value;
+            let trainingType = document.getElementById('trainingType').value;
+
+            if (!name || !email || !age || !number || !gender || !date || !time || !trainingType) {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            alert(`Thank you, ${name}! Your training session on ${date} at ${time} is booked.`);
+            location.reload();
+            return false;
+        }
+    </script>
+</body>
+</html>
